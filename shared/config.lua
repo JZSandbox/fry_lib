@@ -14,6 +14,7 @@ Config.DATAFRAMEWORK = {
         OBJ = 'QBCore:GetObject',
         UPDATEOBJ_CL = 'QBCore:Client:UpdateObject',
         UPDATEOBJ_SV = 'QBCore:Server:UpdateObject',
+        
         MANAGEMENT_RESOURCE = 'qbx-management',
     },
 }
@@ -36,7 +37,7 @@ Config.INITLIB = {
         FUEL = 'jerzys_fuel',
     },
     PERMISSION = {
-        
+
         ACE = 'command',
     },
     INVENTORY = 'ox_inventory',
