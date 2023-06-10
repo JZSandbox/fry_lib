@@ -13,6 +13,7 @@ client_scripts {
 	'client/player/**.**',
 	'client/utils/**.**',
 	'client/vehicle/**.**',
+	'client/utils/misc.lua',
 }
 
 server_scripts {
@@ -29,6 +30,7 @@ shared_scripts {
 	'shared/**.**',
 	'client/utils/debug.lua',
 	'client/utils/switch.lua',
+	'locales/translation.lua',
 }
 
 exports {

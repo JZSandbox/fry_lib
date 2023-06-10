@@ -24,7 +24,7 @@ end
 CreateThread(function()
     local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'gang')
     if show then
-        FRYLIB.GANG.GET()
+        --FRYLIB.GANG.GET()
         FRYLIB.GANG.NAME()
         FRYLIB.GANG.GRADE()
     end

@@ -29,7 +29,7 @@ end
 
 
 CreateThread(function()
-    local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'jobs')
+    local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'job')
     if show then
         FRYLIB.JOB.GET()
         FRYLIB.JOB.PAYMENT()

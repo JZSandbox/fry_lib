@@ -12,7 +12,7 @@ DEBUG.CREATEMESSAGE = function(message,types,logger)
     if DEBUG.LEVEL < 0 then return end
     if types == nil then types = 'NOT DEFINED' end
     if type(message) == "table" and logger == nil then
-        print('[FRY LIB | DEBUG] DATA: TABLE DEBUG DETECTED')
+        print('[FRY LIB | DEBUG] DATA: TABLE DEBUG DETECTED | AREA '..types)
         print(json.encode(message, {indent = true, indent_size = DEBUG.INDENTSIZE}))
         return
     else

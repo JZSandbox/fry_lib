@@ -35,7 +35,7 @@ FRYLIB.PLAYER.GETITEM = function(name, count)
 end
 
 CreateThread(function()
-    local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'player')
+    local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'item')
     if show then
         FRYLIB.PLAYER.GETITEM('cash')
         FRYLIB.PLAYER.ITEMS.GETALL()

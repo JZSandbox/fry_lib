@@ -4,6 +4,7 @@ Config.DEBUGLEVEL = 2 --
 Config.DEBUGINDENTSIZE = 5 -- SET INDENT SIZE FOR JSON.ENCODE PRINT
 
 Config.USEFRAMEWORK = 'qb'
+Config.LANGUAGE = 'de'
 
 -- DATA FRAMEWORKSET
 Config.DATAFRAMEWORK = {
@@ -32,6 +33,7 @@ Config.INITLIB = {
         GARAGE = 'qb',
         CLOTHING = 'fivemapperance',
         ADDONLIB = 'ox_lib',
+        FUEL = 'jerzys_fuel',
     },
     PERMISSION = {
         ACE = 'command',
@@ -40,9 +42,18 @@ Config.INITLIB = {
 }
 
 -- SHOW ALL AVAIBLE DATA IN CONSOLE
-Config.ShowAllData = {
+--[[
     'player',
     'gang',
     'item',
     'job',
+    'vehicle',
+]]--
+Config.ShowAllData = {
+    --'player',
+    --'gang',
+    --'item',
+    --'job',
+    --'item',
+    'vehicle',
 }
