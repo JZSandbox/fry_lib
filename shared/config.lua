@@ -36,6 +36,7 @@ Config.INITLIB = {
         FUEL = 'jerzys_fuel',
     },
     PERMISSION = {
+        
         ACE = 'command',
     },
     INVENTORY = 'ox_inventory',
