@@ -58,3 +58,23 @@ FRYLIB.MISC.CREATEBLIP = function(vector3, label, blipid, size, color)
     AddTextComponentSubstringPlayerName(label)
     EndTextCommandSetBlipName(blip)
 end
+
+-- @params vector3 - Get PixelCoords relative to screen 
+-- @information you get table back with x,y coords for your frontend
+FRYLIB.MISC.GETPIXELCOORDS = function(vec)
+    local success, screenX, screenY = GetScreenCoordFromWorldCoord(vec.X,vec.Y,vec.Z)
+    local screenWidth, screenHeight = GetActiveScreenResolution()
+
+    local position = {
+        x = screenX * screenWidth,
+        y = screenY * screenHeight,
+    }
+    if not success then DEBUG.CREATEMESSAGE('PIXEL COORDS NOT AVAIBLE DOE TO NOT RENDER/VISIABLE TO SCRIPT CAMERA', 'MISC') return else end
+    
+    DEBUG.CREATEMESSAGE(position, 'MISC')
+    return position
+end
+
+CreateThread(function ()
+   
+end)
