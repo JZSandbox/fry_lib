@@ -2,10 +2,10 @@
 DEBUG.LEVEL = Config.DEBUGLEVEL
 DEBUG.INDENTSIZE = Config.DEBUGINDENTSIZE
 
--- @parameters message  EITHER TABLE, STRING
--- @parameters type WHAT TYPE IS THE DEBUG EXAMPLE: 'ITEM, VEHICLE, SMTH ELSE'
--- @parameters level - SET LEVEL OF THE DEBUG MESSAGE
--- @parameters logger - EITHER TRUE OR FALSE
+-- - @params  message:  EITHER TABLE, STRING
+-- - @params type: WHAT TYPE IS THE DEBUG EXAMPLE: 'ITEM, VEHICLE, SMTH ELSE'
+-- - @params level: - SET LEVEL OF THE DEBUG MESSAGE
+-- - @params logger: - EITHER TRUE OR FALSE
 DEBUG.CREATEMESSAGE = function(message,types,logger)
     -- CHECK IF LEVEL IS THE SAME AS CONFIG.DEBUGLEVEL
     -- print('[FRY LIB | DEBUG] DATA: CURRENT DEBUGLEVEL '..DEBUG.LEVEL)

@@ -123,8 +123,8 @@ FRYLIB.VEHICLE.SPAWN = function()
     return DATA
 end
 
--- @params maxDistance | Number - Max Distance to check
--- @params includePlayerVehicle | Boolean - Whether or not to include the player's current vehicle.
+-- - @params maxDistance: Number - Max Distance to check
+-- - @params includePlayerVehicle:  Boolean - Whether or not to include the player's current vehicle.
 FRYLIB.VEHICLE.GETNEARBYCAR = function(maxDistance, includePlayerVehicle)
     local coords = FRYLIB.PLAYER.COORDS()
     if Config.INITLIB.SYSTEM.ADDONLIB == 'ox_lib' then

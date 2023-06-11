@@ -12,7 +12,7 @@ FRYLIB.PLAYER.GETALLDATA = function()
     return DATA
 end
 
--- @params type = 'full' |  'last' | 'first'
+-- - @params type: 'full' |  'last' | 'first'
 FRYLIB.PLAYER.NAME = function(type)
     local name = nil
 
@@ -34,7 +34,7 @@ FRYLIB.PLAYER.NAME = function(type)
     return name
 end
 
--- @params type = 'bank' |  'cash'
+-- - @params type: 'bank' |  'cash'
 FRYLIB.PLAYER.GETMONEY = function(type)
     local DATA = nil
     if type == nil then DEBUG.CREATEMESSAGE('NO TYPE DEFINED FOR MONEY', 'PLAYER') return end
@@ -106,8 +106,8 @@ FRYLIB.PLAYER.LASTSTAND = function()
     return DATA
 end
 
--- @params maxDistance | Number - Max Distance a Player can be
--- @params includePlayer | Boolean - If Includes your Player
+-- - @params maxDistance: Number - Max Distance a Player can be
+-- - @params includePlayer: Boolean - If Includes your Player
 FRYLIB.PLAYER.GETCLOSESPLAYER = function(maxDistance, includePlayer)
     local coords = FRYLIB.PLAYER.COORDS()
 
@@ -119,8 +119,8 @@ FRYLIB.PLAYER.GETCLOSESPLAYER = function(maxDistance, includePlayer)
 end
 
 
--- @params maxDistance | Number - Max Distance a Player can be
--- @params includePlayer | Boolean - If Includes your Player
+-- - @params maxDistance: Number - Max Distance a Player can be
+-- - @params includePlayer: Boolean - If Includes your Player
 FRYLIB.PLAYER.GETCLOSESID = function(maxDistance, includePlayer)
     local coords = FRYLIB.PLAYER.COORDS()
 
@@ -132,8 +132,8 @@ FRYLIB.PLAYER.GETCLOSESID = function(maxDistance, includePlayer)
     end
 end
 
--- @params maxDistance | Number - Max Distance a Player can be
--- @params includePlayer | Boolean - If Includes your Player
+-- - @params maxDistance: Number - Max Distance a Player can be
+-- - @params includePlayer: Boolean - If Includes your Player
 FRYLIB.PLAYER.GETNEARPLAYERS = function(maxDistance, includePlayer)
     local coords = FRYLIB.PLAYER.COORDS()
 
@@ -151,8 +151,8 @@ FRYLIB.PLAYER.COORDS = function()
     return coords
 end
 
---@params string - bonename 
---@information - Get Bones pastebin.com/D7JMnX1g  
+-- - @params string: bonename 
+-- - @information: Get Bones pastebin.com/D7JMnX1g  
 FRYLIB.PLAYER.GETBONEPOSITION = function(bonename)
     local ped = PlayerPedId()
     local boneNumber = FRYLIB.PLAYER.GETBONEINDEX(bonename)
@@ -161,7 +161,7 @@ FRYLIB.PLAYER.GETBONEPOSITION = function(bonename)
     return bonePosition
 end
 
---@params string - Bone Name 
+-- - @params string: Bone Name 
 FRYLIB.PLAYER.GETBONEINDEX = function(bone)
     local bones = {
         ["SKEL_ROOT"] = 0,

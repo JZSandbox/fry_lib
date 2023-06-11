@@ -2,14 +2,14 @@
 FRYLIB.MISC = {}
 
 
--- @params vector3 - On which position to set 3DTEXT
--- @params text - What should be written on the Text
--- @params X - Offset of X position
--- @params Y - Offset of Y position
--- @params Z - Offset of Z position
--- @params addonX - if plus or minus (Calculates if offesets)
--- @params addonY - if plus or minus (Calculates if offesets)
--- @params addonZ - if plus or minus (Calculates if offesets)
+-- - @param vector3: On which position to set 3DTEXT
+-- - @param text: What should be written on the Text
+-- - @param X: Offset of X position
+-- - @param Y: Offset of Y position
+-- - @param Z: Offset of Z position
+-- - @param addonX: if plus or minus (Calculates if offesets)
+-- - @param addonY: if plus or minus (Calculates if offesets)
+-- - @param addonZ: if plus or minus (Calculates if offesets)
 FRYLIB.MISC.DRAW3D = function(vector3, text, offsizeX, offsizeY, offsizeZ, addonX, addonY, addonZ)
     if offsizeX == nil then offsizeX = 0 end
     if offsizeY == nil then offsizeY = 0 end
@@ -41,12 +41,12 @@ FRYLIB.MISC.DRAW3D = function(vector3, text, offsizeX, offsizeY, offsizeZ, addon
     DEBUG.CREATEMESSAGE('3D TEXT CREATED', 'MISC FUNCTION')
 end
 
-
--- @params vector3 - Vector3 Coord to set Blip
--- @params label - Create Name for blip
--- @params blipid - Give the Specific Blip Id | https://docs.fivem.net/docs/game-references/blips/
--- @params size - Which size the Blip should be | 0 - 1
--- @params color - Which color should be blip have | https://docs.fivem.net/docs/game-references/blips/#blip-colors
+--- Create a blip on the map.
+-- - @param vector3: vector3 The coordinates of the blip.
+-- - @param label: string The label of the blip.
+-- - @param blipid: number The ID of the blip sprite. https://docs.fivem.net/docs/game-references/blips/
+-- - @param size: number The size of the blip.
+-- - @param color: number The color of the blip. https://docs.fivem.net/docs/game-references/blips/#blip-colors
 FRYLIB.MISC.CREATEBLIP = function(vector3, label, blipid, size, color)
     local blip = AddBlipForCoord(vector3.x, vector3.y, vector3.z)
     SetBlipSprite(blip, blipid)
@@ -59,8 +59,9 @@ FRYLIB.MISC.CREATEBLIP = function(vector3, label, blipid, size, color)
     EndTextCommandSetBlipName(blip)
 end
 
--- @params vector3 - Get PixelCoords relative to screen 
--- @information you get table back with x,y coords for your frontend
+--- Get pixel coordinates from world coordinates.
+-- - @param vec: vector3 The world coordinates.
+-- - @return position: table The pixel coordinates.
 FRYLIB.MISC.GETPIXELCOORDS = function(vec)
     local success, screenX, screenY = GetScreenCoordFromWorldCoord(vec.X,vec.Y,vec.Z)
     local screenWidth, screenHeight = GetActiveScreenResolution()
@@ -72,7 +73,7 @@ FRYLIB.MISC.GETPIXELCOORDS = function(vec)
     if not success then DEBUG.CREATEMESSAGE('PIXEL COORDS NOT AVAIBLE DOE TO NOT RENDER/VISIABLE TO SCRIPT CAMERA', 'MISC') return end
     
     DEBUG.CREATEMESSAGE(position, 'MISC')
-    
+
     return position
 end
 
