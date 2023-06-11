@@ -69,9 +69,10 @@ FRYLIB.MISC.GETPIXELCOORDS = function(vec)
         x = screenX * screenWidth,
         y = screenY * screenHeight,
     }
-    if not success then DEBUG.CREATEMESSAGE('PIXEL COORDS NOT AVAIBLE DOE TO NOT RENDER/VISIABLE TO SCRIPT CAMERA', 'MISC') return else end
+    if not success then DEBUG.CREATEMESSAGE('PIXEL COORDS NOT AVAIBLE DOE TO NOT RENDER/VISIABLE TO SCRIPT CAMERA', 'MISC') return end
     
     DEBUG.CREATEMESSAGE(position, 'MISC')
+    
     return position
 end
 
