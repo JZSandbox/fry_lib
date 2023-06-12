@@ -4,10 +4,8 @@ FRYLIB.GETSINGLEINFO = function(args)
     if Config.USEFRAMEWORK == 'qb' then return OBJ.FUNCTION..'.'..args..'()' end
 end
 
-FRYLIB.CALLBACK = function(name, cb, ...)
-    if Config.USEFRAMEWORK['qb'] then
-        OBJ.Functions.TriggerCallback(name, cb, ...)
-    end
+FRYLIB.CALLBACK = function(name, delay, cb, ...)
+    lib.callback(name, delay, cb, ...)
 end
 
 FRYLIB.INITEXPORT = function()
@@ -32,4 +30,4 @@ FRYLIB.CHECKFUNCTIONS = function(jobs, name)
 end
 
 -- EXPORT TO LIB
-exports('FRYLIB', FRYLIB.getLib)
+exports('FRYLIBINIT', FRYLIB.getLib())

@@ -78,5 +78,8 @@ FRYLIB.MISC.GETPIXELCOORDS = function(vec)
 end
 
 CreateThread(function ()
-   
+   while true do
+    Wait(1000)
+        --FRYLIB.MISC.GETPIXELCOORDS(FRYLIB.PLAYER.COORDS())
+    end
 end)

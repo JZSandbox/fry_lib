@@ -7,13 +7,17 @@ author '.JERZY'
 description 'FRY LIB'
 version '0.0.1'
 
-dependency 'ox_lib'
+dependency {
+	'ox_lib',
+	'ox_inventory',
+}
 
 client_scripts {
 	'client/player/**.**',
 	'client/utils/**.**',
 	'client/vehicle/**.**',
 	'client/utils/misc.lua',
+	'locales/**.**',
 }
 
 server_scripts {
@@ -30,11 +34,11 @@ shared_scripts {
 	'shared/**.**',
 	'client/utils/debug.lua',
 	'client/utils/switch.lua',
-	'locales/translation.lua',
+	'locales/**.**',
 }
 
 exports {
-	'FRYLIB',
+	'FRYLIBINIT',
 	'FRYLIB.DEBUG',
 }
 
