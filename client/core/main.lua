@@ -13,11 +13,6 @@ FRYLIB.INITEXPORT = function()
     return exports[resource]:GetCoreObject()
 end
 
--- GET LIB FUNCTION
-FRYLIB.getLib = function ()
-    return FRYLIB
-end
-
 -- CHECK WHICH FUNCTIONS SHOULD BE SHOWN IN F8 PRINT
 FRYLIB.CHECKFUNCTIONS = function(jobs, name)
     local show = false
@@ -30,4 +25,6 @@ FRYLIB.CHECKFUNCTIONS = function(jobs, name)
 end
 
 -- EXPORT TO LIB
-exports('FRYLIBINIT', FRYLIB.getLib())
+exports('FRYLIBINIT', function()
+    return FRYLIB
+end)
