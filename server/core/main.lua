@@ -6,3 +6,7 @@ FRYLIB.SERVER.REGISTERCALLBACK = function(name, cb)
         lib.callback.register(name, cb)
     end
 end
+
+exports('FRYLIBSERVER', function()
+    return FRYLIB.SERVER
+end)

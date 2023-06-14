@@ -9,6 +9,7 @@ DEBUG.INDENTSIZE = Config.DEBUGINDENTSIZE
 DEBUG.CREATEMESSAGE = function(message,types,logger)
     -- CHECK IF LEVEL IS THE SAME AS CONFIG.DEBUGLEVEL
     -- print('[FRY LIB | DEBUG] DATA: CURRENT DEBUGLEVEL '..DEBUG.LEVEL)
+    if message == nil then message = 'NO DATA OR MESSAGE SET/AVAIBLE' end
     if DEBUG.LEVEL < 0 then return end
     if types == nil then types = 'NOT DEFINED' end
     if type(message) == "table" and logger == nil then

@@ -21,7 +21,7 @@ end
 
 -- @params name - Get Specifi Item
 -- @params count - True or False to get Item Count
-FRYLIB.PLAYER.GETITEM = function(name, count)
+FRYLIB.PLAYER.ITEMS.GETITEM = function(name, count)
     local getCount = count
     local hasItem = false
     if Config.INITLIB.INVENTORY == 'ox_inventory' and getCount == nil then
@@ -32,6 +32,23 @@ FRYLIB.PLAYER.GETITEM = function(name, count)
     elseif Config.INITLIB.INVENTORY == 'ox_inventory' and getCount then
         return exports.ox_inventory:GetItemCount(name)
     end
+end
+
+-- - @information Get current weapon
+FRYLIB.PLAYER.ITEMS.GETCURRENTWEAPON = function()
+    local DATA = {}
+    DATA = exports.ox_inventory:getCurrentWeapon()
+    DEBUG.CREATEMESSAGE(DATA, 'INVENTORY CLIENT')
+    return DATA
+end
+-- - @information Search items
+-- - @params search string | 'slots', 'count'
+-- - @params what item string
+FRYLIB.PLAYER.ITEMS.SEARCH = function(search, item, metadata)
+    local DATA = {}
+    DATA = exports.ox_inventory:Search(search, item, metadata)
+    DEBUG.CREATEMESSAGE(DATA, 'INVENTORY CLIENT')
+    return DATA
 end
 
 CreateThread(function()

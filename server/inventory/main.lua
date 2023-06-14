@@ -33,7 +33,7 @@ end
 -- - @information - Returns the inventory associated with the ID (and owner if defined). Otherwise returns null.
 -- - @params - number/table 
 -- - @params - owner boolean if decided
-FRYLIB.SERVER.INVENTORY.GETINVENTORY = function(source, owner)
+FRYLIB.SERVER.INVENTORY.GETINV = function(source, owner)
     local DATA = {}
     DATA.SUCCESS = exports.ox_inventory:GetInventory(source, owner)
     DEBUG.CREATEMESSAGE(DATA, 'INVENTORY SERVER')

@@ -77,9 +77,67 @@ FRYLIB.MISC.GETPIXELCOORDS = function(vec)
     return position
 end
 
-CreateThread(function ()
-   while true do
-    Wait(1000)
-        --FRYLIB.MISC.GETPIXELCOORDS(FRYLIB.PLAYER.COORDS())
+-- - @information Set Model for current Ped
+-- - @params Model string - Model name example : 'ig_oneil'
+FRYLIB.MISC.SETMODEL = function(Model)
+    local DATA = Model
+    local PED = PlayerPedId()
+    Model = GetHashKey(DATA)
+    Wait(100)
+	if IsModelValid(DATA) then
+	if not HasModelLoaded(DATA) then
+		RequestModel(DATA)
+		while not HasModelLoaded(DATA) do
+			Citizen.Wait(1000)
+		end
+	end
+	SetPlayerModel(PlayerId(), DATA)
+	SetPedDefaultComponentVariation(PED)
+	SetModelAsNoLongerNeeded(DATA)
+	end
+    DEBUG.CREATEMESSAGE('SET PED TO MODEL: '..DATA, 'MISC')
+end
+
+-- - @information - Reloadskin for player ped
+FRYLIB.MISC.SETNORMALPED = function()
+    if Config.INITLIB.SYSTEM.CLOTHING == 'fivemapperance' then
+        ExecuteCommand('reloadskin')
+        DEBUG.CREATEMESSAGE('SET PED TO NORMAL', 'MISC')
     end
-end)
+end
+
+-- - @information Create Dispatch mdt-dispatch | Easy integration
+-- - @params coords vec3 - send coords for map
+-- - @params message string - What message will be shown
+-- - @params dipspatchCode string - The dispatch Code
+-- - @params description string - What is happening?
+-- - @params radius number - if the blip has a radius
+-- - @params color number - Blip Color
+-- - @params scale numebr - Blip Scale 
+-- - @params length numebr - How long it stays on the map
+FRYLIB.MISC.CREATEDISPATCH = function(coords, message, dispatchCode, description, radius, sprite, color, scale, length)
+    local DATA = {}
+
+    if Config.INITLIB.SYSTEM.DISPATCH == 'mdt-dispatch' then
+        if radius == nil then radius = 0 end
+        if sprite == nil then sprite = 64 end
+        if color == nil then color = 2 end
+        if scale == nil then scale = 1.0 end
+        if length == nil then scale = 3 end
+
+        DATA.coords = coords
+        DATA.message = message
+        DATA.dispatchCode = dispatchCode
+        DATA.description = description
+        DATA.radius = radius
+        DATA.sprite = sprite
+        DATA.color = color
+        DATA.scale = scale
+        DATA.length = length
+
+        DEBUG.CREATEMESSAGE('CREATE DISPATCH', 'MISC')
+        DEBUG.CREATEMESSAGE(DATA, 'MISC')
+
+        exports["ps-dispatch"]:CustomAlert(DATA)
+    end
+end

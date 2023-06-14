@@ -1,7 +1,5 @@
-FRYLIB.SERVER.ITEMS = {}
+FRYLIB.SERVER.ITEM = {}
 local OBJECT = FRYLIB.INITEXPORT()
-
-
 
 -- - @params inventory - source (who belongs that inventory)
 -- - @params item - string (which item)
@@ -59,7 +57,7 @@ FRYLIB.SERVER.ITEM.GETWEAPON = function(inv)
     return DATA
 end
 
--- - @information - get weapon
+-- - @information - Search, item
 -- - @params search - string ('slots', 'count')
 -- - @params items - table or string
 -- - @params metadata - table or string
