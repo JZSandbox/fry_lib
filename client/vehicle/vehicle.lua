@@ -140,8 +140,6 @@ end
 CreateThread(function()
     local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'vehicle')
     if show then
-        --FRYLIB.VEHICLE.SETPROPERTTIES()
-        --FRYLIB.VEHICLE.GETFUEL()
-        --FRYLIB.VEHICLE.GETNEARBYCAR(10,true)
+        FRYLIB.VEHICLE.PROPERTIES()
     end
 end)

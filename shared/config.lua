@@ -56,5 +56,5 @@ Config.ShowAllData = {
     --'item',
     --'job',
     --'item',
-    'vehicle',
+    --'vehicle',
 }

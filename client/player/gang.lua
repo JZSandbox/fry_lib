@@ -21,6 +21,8 @@ FRYLIB.GANG.GRADE = function()
     return DATA
 end
 
+
+
 CreateThread(function()
     local show = FRYLIB.CHECKFUNCTIONS(Config.ShowAllData, 'gang')
     if show then
