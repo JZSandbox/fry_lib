@@ -141,3 +141,13 @@ FRYLIB.MISC.CREATEDISPATCH = function(coords, message, dispatchCode, description
         exports["ps-dispatch"]:CustomAlert(DATA)
     end
 end
+
+-- - @information Notifications
+-- - @params title string - String title
+-- - @params title description - String description
+-- - @params title type - String type
+-- - @params title icon - String icon
+FRYLIB.MISC.NOTIFY = function(data)
+    lib.notify({titel = data.title, description = data.description, type = data.type, icon = data.icon })
+    DEBUG.CREATEMESSAGE('GENERATE NOTIFICATION', 'MISC')
+end

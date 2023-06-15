@@ -1,7 +1,11 @@
 FRYLIB.GANG = {}
 local OBJECT = FRYLIB.INITEXPORT()
 local PED = nil
-local PLAYERDATA = OBJECT.Functions.GetPlayerData()
+local PLAYERDATA = nil
+
+AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+    PLAYERDATA = OBJECT.Functions.GetPlayerData()
+end)
 
 FRYLIB.GANG.GET = function()
     local DATA = PLAYERDATA.gang

@@ -1,6 +1,10 @@
 local OBJECT = FRYLIB.INITEXPORT()
-local PLAYERDATA = OBJECT.Functions.GetPlayerData()
+local PLAYERDATA = nil
 FRYLIB.INVENTORY = {}
+
+AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+    PLAYERDATA = OBJECT.Functions.GetPlayerData()
+end)
 
 -- - @information Opens Inventory of a 'player', 'shop', 'stash'....  (ox_inv)
 -- - @params type string - 'player' 'shop' 'stash'  'crafting' 'container' 'drop' 'glovebox'..

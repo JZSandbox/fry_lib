@@ -1,7 +1,11 @@
 local OBJECT = FRYLIB.INITEXPORT()
 FRYLIB.PLAYER.ITEMS = {}
 local PED = nil
-local PLAYERDATA = OBJECT.Functions.GetPlayerData()
+local PLAYERDATA = nil
+
+AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+    PLAYERDATA = OBJECT.Functions.GetPlayerData()
+end)
 
 -- GET ALL ITEMS OF THE PLAYER
 FRYLIB.PLAYER.ITEMS.GETALL = function()

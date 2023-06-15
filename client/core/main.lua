@@ -1,11 +1,12 @@
 FRYLIB = {}
+local QBCore = exports['qb-core']:GetCoreObject()
 
 FRYLIB.GETSINGLEINFO = function(args)
     if Config.USEFRAMEWORK == 'qb' then return OBJ.FUNCTION..'.'..args..'()' end
 end
 
-FRYLIB.CALLBACK = function(name, delay, cb, ...)
-    lib.callback(name, delay, cb, ...)
+FRYLIB.CALLBACK = function(name, cb,...)
+    QBCore.Functions.TriggerCallback(name, cb,...)
 end
 
 FRYLIB.INITEXPORT = function()
@@ -27,4 +28,8 @@ end
 -- EXPORT TO LIB
 exports('FRYLIBINIT', function()
     return FRYLIB
+end)
+
+
+CreateThread(function()
 end)

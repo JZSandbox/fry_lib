@@ -15,6 +15,7 @@ Config.DATAFRAMEWORK = {
         UPDATEOBJ_CL = 'QBCore:Client:UpdateObject',
         UPDATEOBJ_SV = 'QBCore:Server:UpdateObject',
         MANAGEMENT_RESOURCE = 'qbx-management',
+        PLAYER_LOAD = 'QBCore:Client:OnPlayerLoaded'
     },
 }
 

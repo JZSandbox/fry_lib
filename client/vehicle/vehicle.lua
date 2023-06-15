@@ -2,7 +2,11 @@ FRYLIB.VEHICLE = {}
 local OBJECT = FRYLIB.INITEXPORT()
 local LANG = TRANSLATION.getTrasnlation()
 local PED = nil
-local PLAYERDATA = OBJECT.Functions.GetPlayerData()
+local PLAYERDATA = nil
+
+AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+    PLAYERDATA = OBJECT.Functions.GetPlayerData()
+end)
 	
 FRYLIB.VEHICLE.BONE = {
     WheelBoneName = {
