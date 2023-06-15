@@ -3,7 +3,7 @@ FRYLIB.PLAYER.ITEMS = {}
 local PED = nil
 local PLAYERDATA = nil
 
-AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+AddEventHandler(Config.DATAFRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
     PLAYERDATA = OBJECT.Functions.GetPlayerData()
 end)
 

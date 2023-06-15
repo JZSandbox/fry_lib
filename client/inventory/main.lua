@@ -2,7 +2,7 @@ local OBJECT = FRYLIB.INITEXPORT()
 local PLAYERDATA = nil
 FRYLIB.INVENTORY = {}
 
-AddEventHandler(Config.FRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
+AddEventHandler(Config.DATAFRAMEWORK[Config.USEFRAMEWORK].PLAYER_LOAD, function()
     PLAYERDATA = OBJECT.Functions.GetPlayerData()
 end)
 
