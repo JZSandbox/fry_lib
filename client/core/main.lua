@@ -1,8 +1,7 @@
 FRYLIB = {}
-local QBCore = exports['qb-core']:GetCoreObject()
 
 FRYLIB.CALLBACK = function(name, cb,...)
-    QBCore.Functions.TriggerCallback(name, cb,...)
+    FRYLIB.INITEXPORT().Functions.TriggerCallback(name, cb,...)
 end
 
 FRYLIB.INITEXPORT = function()
@@ -10,19 +9,31 @@ FRYLIB.INITEXPORT = function()
     return exports[resource]:GetCoreObject()
 end
 
+FrameworkReady = function()
+    if Framework == 'ESX' then
+        while not ESX do Wait(500); end 
+        while ESX.GetPlayerData().job == nil do
+            Citizen.Wait(500)
+        end
+        Lib.PlayerData = Lib.GetPlayerData()
+        return true
+    elseif Framework == 'QB' then
+        while not QBCore do Wait(500); end
+        while not QBCore.Functions.GetPlayerData().job do Wait(500); end
+        Lib.PlayerData = Lib.GetPlayerData()
+        return true
+    end
+    return true
+end
+
 FRYLIB.INITFRAMKEWORK = function()
     DEBUG.CREATEMESSAGE('INIT '..string.upper(Config.USEFRAMEWORK), 'CORE')
     if Config.USEFRAMEWORK == 'qb' then
-        while not FRYLIB.INITEXPORT() do
-            DEBUG.CREATEMESSAGE('INIT EXPORT'..Config.USEFRAMEWORK, 'CORE')
-            Wait(500)
-        end
-        while not QBCore.Functions.GetPlayerData().job do
-            DEBUG.CREATEMESSAGE('INIT PLAYERDATA'..Config.USEFRAMEWORK, 'CORE')
-            Wait(500)
-        end
-        PLAYERDATA = QBCore.Functions.GetPlayerData()
+        while not FRYLIB.INITEXPORT() do DEBUG.CREATEMESSAGE('INIT EXPORT'..Config.USEFRAMEWORK, 'CORE') Wait(500); end
+        while not FRYLIB.INITEXPORT().Functions.GetPlayerData().job do DEBUG.CREATEMESSAGE('INIT PLAYERDATA'..Config.USEFRAMEWORK, 'CORE') Wait(500); end
+        PLAYERDATA = FRYLIB.INITEXPORT().Functions.GetPlayerData()
     end
+    DEBUG.CREATEMESSAGE(PLAYERDATA, 'CORE')
     DEBUG.CREATEMESSAGE('INIT SUCCESSFULL, OBJECT AND PLAYERDATA LOADED '..string.upper(Config.USEFRAMEWORK), 'CORE')
 end
 
@@ -45,11 +56,12 @@ end)
 -- - @information On Resource Start the Init Framework function
 AddEventHandler('onResourceStart', function(resource)
    if resource == GetCurrentResourceName() then
+    Wait(500)
     FRYLIB.INITFRAMKEWORK()
    end
 end)
 
--- - @information Stopping Resource
+-- - @information Stoppingwd Resource
 AddEventHandler('onResourceStop', function(resource)
    if resource == GetCurrentResourceName() then
       DEBUG.CREATEMESSAGE('STOPPING FRYLIB', 'CORE')
