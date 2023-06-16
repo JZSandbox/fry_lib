@@ -11,49 +11,31 @@ FRYLIB.VEHICLE.BONE = {
 		['4'] = 'wheel_lr',
 		['5'] = 'wheel_rr'
 	},
-	VehicleWheels = {
-		['2'] = { -- Bike and cycle.
-			['0'] = {label = LANG.wheel.front, bone = 'wheel_lf', index = 0, wheelId = 0},
-			['4'] = {label = LANG.wheel.back, bone = 'wheel_lr', index = 4, wheelId = 1},
-		},
-		['3'] = { -- Vehicle with 3 wheels (get for wheels because some 3 wheels vehicles have 2 wheels on front and one rear or the reverse).
-			['0'] = {label = LANG.wheel.wheel_f_l, bone = 'wheel_lf', index = 0, wheelId = 0},
-			['1'] = {label = LANG.wheel.wheel_f_r, bone = 'wheel_rf', index = 1, wheelId = 1},
-			['4'] = {label = LANG.wheel.wheel_b_l, bone = 'wheel_lr', index = 4, wheelId = 2},
-			['5'] = {label = LANG.wheel.wheel_b_r, bone = 'wheel_rr', index = 5, wheelId = 3},
-		},
-		['4'] = { -- Vehicle with 4 wheels.
-			['0'] = {label = LANG.wheel.wheel_f_l, bone = 'wheel_lf', index = 0, wheelId = 0},
-			['1'] = {label = LANG.wheel.wheel_f_r, bone = 'wheel_rf', index = 1, wheelId = 1},
-			['4'] = {label = LANG.wheel.wheel_b_l, bone = 'wheel_lr', index = 4, wheelId = 2},
-			['5'] = {label = LANG.wheel.wheel_b_r, bone = 'wheel_rr', index = 5, wheelId = 3},
-		},
-		['6'] = { -- Vehicle with 6 wheels.
-			['0'] = {label = LANG.wheel.wheel_f_l, bone = 'wheel_lf', index = 0, wheelId = 0},
-			['1'] = {label = LANG.wheel.wheel_f_r, bone = 'wheel_rf', index = 1, wheelId = 1},
-			['2'] = {label = LANG.wheel.wheel_m_l, bone = 'wheel_lm1', index = 2, wheelId = 2},
-			['3'] = {label = LANG.wheel.wheel_m_r, bone = 'wheel_rm1', index = 3, wheelId = 3},
-			['4'] = {label = LANG.wheel.wheel_b_l, bone = 'wheel_lr', index = 4, wheelId = 4},
-			['5'] = {label = LANG.wheel.wheel_b_r, bone = 'wheel_rr', index = 5, wheelId = 5},
-		}
+	VehicleWheels = {-- Vehicle with 6 wheels.
+		['wheel_front_left'] = {label = LANG.wheel.wheel_f_l, bone = 'wheel_lf', index = 0, wheelId = 0},
+		['wheel_front_right'] = {label = LANG.wheel.wheel_f_r, bone = 'wheel_rf', index = 1, wheelId = 1},
+		['wheel_middle_left'] = {label = LANG.wheel.wheel_m_l, bone = 'wheel_lm1', index = 2, wheelId = 2},
+		['wheel_middle_right'] = {label = LANG.wheel.wheel_m_r, bone = 'wheel_rm1', index = 3, wheelId = 3},
+		['wheel_left_right'] = {label = LANG.wheel.wheel_b_l, bone = 'wheel_lr', index = 4, wheelId = 4},
+		['wheel_left_left'] = {label = LANG.wheel.wheel_b_r, bone = 'wheel_rr', index = 5, wheelId = 5},
 	},
 
 	VehicleDoors = {
-		['0'] = {label = LANG.door.door_f_l, bone = 'door_dside_f', bone2 = 'seat_dside_f', index = 0},
-		['1'] = {label = LANG.door.door_f_r, bone = 'door_pside_f', bone2 = 'seat_pside_f', index = 1},
-		['2'] = {label = LANG.door.door_b_l, bone = 'door_dside_r', bone2 = 'seat_dside_r', index = 2},
+		['door_f_l'] = {label = LANG.door.door_f_l, bone = 'door_dside_f', bone2 = 'seat_dside_f', index = 0},
+		['door_f_r'] = {label = LANG.door.door_f_r, bone = 'door_pside_f', bone2 = 'seat_pside_f', index = 1},
+		['door_r_l'] = {label = LANG.door.door_b_l, bone = 'door_dside_r', bone2 = 'seat_dside_r', index = 2},
 		['3'] = {label = LANG.door.door_b_r, bone = 'door_pside_r', bone2 = 'seat_pside_r', index = 3},
-		['4'] = {label = LANG.door.hood, bone = 'bonnet', index = 4},
-		['5'] = {label = LANG.door.trunk, bone = 'boot', index = 5},
+		['hood'] = {label = LANG.door.hood, bone = 'bonnet', index = 4},
+		['trunk'] = {label = LANG.door.trunk, bone = 'boot', index = 5},
 	},
 
 	VehicleWindows = {
-		['0'] = {label = LANG.window.window_f_l, bone = 'window_lf', index = 0},
-		['1'] = {label = LANG.window.window_f_r, bone = 'window_rf', index = 1},
-		['2'] = {label = LANG.window.window_b_l, bone = 'window_lr', index = 2},
-		['3'] = {label = LANG.window.window_b_r, bone = 'window_rr', index = 3},
-		['6'] = {label = LANG.window.window_widescreen_f, bone = 'windscreen', index = 6},
-		['7'] = {label = LANG.window.window_widescreen_b, bone = 'windscreen_r', index = 7},
+		['window_lf'] = {label = LANG.window.window_f_l, bone = 'window_lf', index = 0},
+		['window_rf'] = {label = LANG.window.window_f_r, bone = 'window_rf', index = 1},
+		['window_lr'] = {label = LANG.window.window_b_l, bone = 'window_lr', index = 2},
+		['window_rr'] = {label = LANG.window.window_b_r, bone = 'window_rr', index = 3},
+		['windscreen'] = {label = LANG.window.window_widescreen_f, bone = 'windscreen', index = 6},
+		['windscreen_r'] = {label = LANG.window.window_widescreen_b, bone = 'windscreen_r', index = 7},
 	},
 
 }
@@ -82,6 +64,18 @@ FRYLIB.VEHICLE.GETCLOSESBONE = function()
     local DATA = PLAYERDATA.job.payment
     DEBUG.CREATEMESSAGE(DATA)
     return DATA
+end
+
+-- - @information Get Vehicle Bone Position
+-- - @params veh - hash
+-- - @params type string - VehicleWheels | VehicleDoors | VehicleWindows
+-- - @params bonename string - wheel_front_left...
+FRYLIB.VEHICLE.GETBONEPOSITION = function(veh,type,bonename)
+	local DATA = {}
+	local type = FRYLIB.VEHICLE.BONE[type][bonename].index
+	DATA = GetWorldPositionOfEntityBone(veh,type)
+	DEBUG.CREATEMESSAGE(DATA, 'VEHICEL')
+	return DATA
 end
 
 FRYLIB.VEHICLE.CLOSES = function()

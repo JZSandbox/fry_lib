@@ -1,5 +1,5 @@
 FRYLIB.SERVER.ITEM = {}
-local OBJECT = FRYLIB.SERVER.INITEXPORT()
+local OBJECT = FRYLIB.INITEXPORT()
 
 -- - @params inventory - source (who belongs that inventory)
 -- - @params item - string (which item)

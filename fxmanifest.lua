@@ -26,7 +26,6 @@ client_scripts {
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
 	'config.lua',
-	'server/core/main.lua',
 	'server/inventory/**.**',
 	'server/player/**.**',
 }
@@ -36,7 +35,7 @@ shared_scripts {
 	'config.lua',
 	'shared/**.**',
 	'locales/**.**',
-	'client/core/**.**',
+	'client/core/main.lua',
 	'client/utils/debug.lua',
 }
 

@@ -10,35 +10,68 @@ FRYLIB.MISC = {}
 -- - @param addonX: if plus or minus (Calculates if offesets)
 -- - @param addonY: if plus or minus (Calculates if offesets)
 -- - @param addonZ: if plus or minus (Calculates if offesets)
-FRYLIB.MISC.DRAW3D = function(vector3, text, offsizeX, offsizeY, offsizeZ, addonX, addonY, addonZ)
-    if offsizeX == nil then offsizeX = 0 end
-    if offsizeY == nil then offsizeY = 0 end
-    if addonX == nil then addonX = 'plus' end
-    if addonY == nil then addonY = 'plus' end
-    if addonZ == nil then addonY = 'plus' end
+FRYLIB.MISC.DRAW3D = function(vec, text, offsizeX, offsizeY, offsizeZ)
+    local TABLE = {}
+    TABLE.VEC = vec
+    TABLE.TEXT = text
 
-    local drawX = vector3.x
-    local drawY = vector3.y
-    local drawZ = vector3.z
+    TABLE.offsizeX = offsizeX or 0
+    TABLE.offsizeY = offsizeY or 0
+    TABLE.offsizeZ = offsizeZ or 0
+    
+    DEBUG.CREATEMESSAGE(TABLE, 'MISC')
+
+    local drawX = nil
+    local drawY = nil
+    local drawZ = nil
 
     SetTextScale(0.35, 0.35)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(true)
-    AddTextComponentString(text)
+	SetTextFont(4)
+	SetTextProportional(1)
+	SetTextColour(255, 255, 255, 215)
+	SetTextEntry("STRING")
+	SetTextCentre(true)
+	AddTextComponentString(text)
 
-    if addonX == 'plus' then drawX = vector3.x  + offsizeX else drawX = vector3.x  - offsizeX end
-    if addonY == 'plus' then drawY = vector3.y + offsizeY else drawY = vector3.y - offsizeY end
-    if addonZ == 'plus' then drawZ = vector3.z + offsizeZ else drawZ = vector3.z - offsizeZ end
+    drawX = TABLE.VEC.x + TABLE.offsizeX
+
+    drawY = TABLE.VEC.y + TABLE.offsizeY
+
+    drawZ = TABLE.VEC.z + TABLE.offsizeZ
+
+	SetDrawOrigin(drawX,drawY,drawZ, 0)
+	local factor = (string.len(text)) / 370
+	DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+	ClearDrawOrigin()
 
     SetDrawOrigin(drawX, drawY, drawZ, 0)
     DrawText(0.0, 0.0)
-    local factor = (string.len(text)) / 370
+    local factor = (string.len(TABLE.TEXT)) / 370
     DrawRect(0.0, 0.0 + 0.0125, 0.017 + factor, 0.03, 0, 0, 0, 75)
     ClearDrawOrigin()
     DEBUG.CREATEMESSAGE('3D TEXT CREATED', 'MISC FUNCTION')
+end
+
+FRYLIB.MISC.DRAW2D = function(coords, text, width, height, scale, font, r, g, b, a)
+    r = r or 255
+    g = g or 255
+    b = b or 255
+    a = a or 215
+    width = width or 1.0
+    height = height or 1.0
+    scale = scale or 0.35
+    font = font or 4
+
+    SetTextFont(font)
+    SetTextScale(scale, scale)
+    SetTextColour(r, g, b, a)
+    SetTextDropShadow()
+    SetTextOutline()
+    SetTextCentre(true)
+    BeginTextCommandDisplayText('STRING')
+    AddTextComponentSubstringPlayerName(text)
+    EndTextCommandDisplayText(coords.x - width / 2, coords.y - height / 2 + 0.005)
+    DEBUG.CREATEMESSAGE('2D TEXT CREATED', 'MISC FUNCTION')
 end
 
 --- Create a blip on the map.

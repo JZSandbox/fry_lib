@@ -1,10 +1,5 @@
 FRYLIB.SERVER = {}
-local OBJ = FRYLIB.SERVER.INITEXPORT()
-
-FRYLIB.SERVER.INITEXPORT = function()
-    local resource = Config.DATAFRAMEWORK[Config.USEFRAMEWORK].RESOURCE
-    return exports[resource]:GetCoreObject()
-end
+local OBJ = FRYLIB.INITEXPORT()
 
 -- - Create Call Back with OX_LIB
 FRYLIB.SERVER.REGISTERCALLBACK = function(name, cb)
