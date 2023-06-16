@@ -21,7 +21,11 @@ Config.DATAFRAMEWORK = {
 
 -- FECHTING DATA
 Config.FETCHDATA = {
-    JOBS = {'police', 'lssd', 'ambulance'},
+    JOBS = {
+        'police',
+        'lssd',
+        'ambulance'
+    },
 }
 
 -- SETUP LIB

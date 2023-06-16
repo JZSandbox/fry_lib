@@ -151,3 +151,29 @@ FRYLIB.MISC.NOTIFY = function(data)
     lib.notify({titel = data.title, description = data.description, type = data.type, icon = data.icon })
     DEBUG.CREATEMESSAGE('GENERATE NOTIFICATION', 'MISC')
 end
+
+-- - @information SHOW UI FUNCTION
+-- - @params input - table input.HASFOCUS = false, input.HASCURSOR false
+-- - @params data - table send data to UI
+FRYLIB.MISC.SHOWNUI = function(input, data)
+    local DATA = data
+    local NUI_SETTINGS = {}
+    NUI_SETTINGS.HASFOCUS  = input.focus
+    NUI_SETTINGS.HASCURSOR  = input.cursor
+    if input then NUI_SETTINGS.HASFOCUS = false else NUI_SETTINGS.HASCURSOR = false end
+    DEBUG.CREATEMESSAGE('NUI HAS FOCUS'.. NUI_SETTINGS.HASFOCUS)
+    DEBUG.CREATEMESSAGE('NUI HAS CURSOR'.. NUI_SETTINGS.HASFOCUS)
+    SetNuiFocus(NUI_SETTINGS.HASFOCUS,NUI_SETTINGS.HASCURSOR)
+    DEBUG.CREATEMESSAGE(DATA, 'MISC')
+    SendNuiMessage(json.encode(DATA))
+end
+
+-- - @information HIDE UI FUNCTION
+FRYLIB.MISC.HIDENUI = function()
+    local NUI_SETTINGS = {}
+    NUI_SETTINGS.HASFOCUS  = false
+    NUI_SETTINGS.HASCURSOR  = false
+    SendNuiMessage(json.encode({action = 'hide'}))
+    SetNuiFocus(NUI_SETTINGS.HASFOCUS,NUI_SETTINGS.HASCURSOR)
+    DEBUG.CREATEMESSAGE('CLOSE NUI', 'MISC')
+end

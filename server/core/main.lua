@@ -1,9 +1,9 @@
 FRYLIB.SERVER = {}
-local QBCore = exports['qb-core']:GetCoreObject()
+local OBJ = FRYLIB.INITEXPORT()
 
 -- - Create Call Back with OX_LIB
 FRYLIB.SERVER.REGISTERCALLBACK = function(name, cb)
-    QBCore.Functions.CreateCallback(name, cb)
+    OBJ.Functions.CreateCallback(name, cb)
 end
 
 exports('FRYLIBSERVER', function()
