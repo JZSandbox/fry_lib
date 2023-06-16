@@ -1,4 +1,5 @@
 FRYLIB = {}
+PLAYERDATA = {}
 
 FRYLIB.CALLBACK = function(name, cb,...)
     FRYLIB.INITEXPORT().Functions.TriggerCallback(name, cb,...)
@@ -9,23 +10,7 @@ FRYLIB.INITEXPORT = function()
     return exports[resource]:GetCoreObject()
 end
 
-FrameworkReady = function()
-    if Framework == 'ESX' then
-        while not ESX do Wait(500); end 
-        while ESX.GetPlayerData().job == nil do
-            Citizen.Wait(500)
-        end
-        Lib.PlayerData = Lib.GetPlayerData()
-        return true
-    elseif Framework == 'QB' then
-        while not QBCore do Wait(500); end
-        while not QBCore.Functions.GetPlayerData().job do Wait(500); end
-        Lib.PlayerData = Lib.GetPlayerData()
-        return true
-    end
-    return true
-end
-
+-- - @information INIT FRAMEWORK
 FRYLIB.INITFRAMKEWORK = function()
     DEBUG.CREATEMESSAGE('INIT '..string.upper(Config.USEFRAMEWORK), 'CORE')
     if Config.USEFRAMEWORK == 'qb' then
