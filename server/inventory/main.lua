@@ -1,5 +1,5 @@
 FRYLIB.SERVER.INVENTORY = {}
-local OBJECT = FRYLIB.INITEXPORT()
+local OBJECT = FRYLIB.SERVER.INITEXPORT()
 
 
 -- - @information - Clears a player's inventory and saves it to a stash.

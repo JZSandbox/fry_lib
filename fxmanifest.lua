@@ -19,25 +19,25 @@ client_scripts {
 	'client/vehicle/**.**',
 	'client/inventory/**.**',
 	'client/utils/misc.lua',
+	'client/core/load.lua',
 	'locales/**.**',
 }
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
 	'config.lua',
-	'server/core/**.**',
+	'server/core/main.lua',
 	'server/inventory/**.**',
 	'server/player/**.**',
 }
 
 shared_scripts {
-	'client/core/main.lua',
     '@ox_lib/init.lua',
 	'config.lua',
 	'shared/**.**',
-	'client/utils/debug.lua',
-	'client/utils/switch.lua',
 	'locales/**.**',
+	'client/core/**.**',
+	'client/utils/debug.lua',
 }
 
 exports {
