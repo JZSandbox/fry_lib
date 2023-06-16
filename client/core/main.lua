@@ -52,3 +52,9 @@ AddEventHandler('onResourceStop', function(resource)
       DEBUG.CREATEMESSAGE('STOPPING FRYLIB', 'CORE')
    end
 end)
+
+-- - @informationen Eventhandler
+AddEventHandler(Config.DATAFRAMEWORK[Config.DATAFRAMEWORK].PLAYER_LOAD, function()
+    Wait(200)
+    FRYLIB.INITFRAMKEWORK()
+end)
