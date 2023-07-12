@@ -28,6 +28,9 @@ server_scripts {
 	'config.lua',
 	'server/inventory/**.**',
 	'server/player/**.**',
+	'server/core/main.lua',
+	'server/utils/**.**',
+	'server/job/main.lua',
 }
 
 shared_scripts {
@@ -37,11 +40,12 @@ shared_scripts {
 	'locales/**.**',
 	'client/core/main.lua',
 	'client/utils/debug.lua',
+	'server/core/load.lua',
 }
 
 exports {
 	'FRYLIBINIT',
-	'FRYLIB.DEBUG',
+	'DEBUG',
 }
 
 server_exports {

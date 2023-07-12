@@ -1,4 +1,4 @@
-FRYLIB.SERVER = {}
+local DEBUG = require('server.utils.debug')
 local OBJ = FRYLIB.INITEXPORT()
 
 -- - Create Call Back with OX_LIB
@@ -11,4 +11,8 @@ exports('FRYLIBSERVER', function()
 end)
 
 FRYLIB.SERVER.REGISTERCALLBACK('jerzys_test', function(source, cb, garage, type, category)
+end)
+
+CreateThread(function()
+    DEBUG.CREATEMESSAGE('RESOURCE IS STARTING', 'SERVER CORE')
 end)

@@ -39,3 +39,7 @@ FRYLIB.SERVER.INVENTORY.GETINV = function(source, owner)
     DEBUG.CREATEMESSAGE(DATA, 'INVENTORY SERVER')
     return DATA
 end
+
+CreateThread(function()
+    FRYLIB.SERVER.INVENTORY.GETINV(1, false)
+end)

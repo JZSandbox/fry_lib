@@ -158,6 +158,7 @@ FRYLIB.PLAYER.GETBONEPOSITION = function(bonename)
     return bonePosition
 end
 
+-- - @informationen string - get bone index
 -- - @params string: Bone Name 
 FRYLIB.PLAYER.GETBONEINDEX = function(bone)
     local bones = {
